@@ -35,4 +35,4 @@ to our special file `/project/project/secret.py` so that we may place
 `secret.py` in our `.gitignore`, thus preventing it from being added to our
 repositories and making our `SECRET_KEY` public.
 
-### TODO: Database setup instruction.
+Finally, `python3 manage.py migrate` to get your database set up. XD
