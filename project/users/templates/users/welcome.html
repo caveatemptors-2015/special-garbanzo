@@ -1,7 +1,22 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html>
 	<head><title>Art's Welcome Page</title></head>
 	<body>
 		<h1>Welcome</h1>
+		<form method="POST" action="{% url 'users:login' %}">
+			{% csrf_token %}
+			<fieldset><legend>Login</legend>
+				{{ form.login }}
+				<input type="submit">
+			</fieldset>
+		</form>
+		<form method="POST" action="{% url 'users:register' %}">
+			{% csrf_token %}
+			<fieldset><legend>Register</legend>
+				{{ form.register }}
+				<input type="submit">
+			</fieldset>
+		</form>
 	</body>
 </html>
