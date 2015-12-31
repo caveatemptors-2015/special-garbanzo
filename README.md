@@ -15,7 +15,7 @@ necessary modules from `requirements.txt`.
 ```bash
 cd project
 virtualenv env
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 Third, create the file `/project/project/secret.py` to include a secret key. It
