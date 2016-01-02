@@ -1,22 +1,106 @@
 <!DOCTYPE html>
-{% load staticfiles %}
-<html>
-	<head><title>Art's Welcome Page</title></head>
-	<body>
-		<h1>Welcome</h1>
-		<form method="POST" action="{% url 'users:login' %}">
-			{% csrf_token %}
-			<fieldset><legend>Login</legend>
-				{{ form.login }}
-				<input type="submit">
-			</fieldset>
-		</form>
-		<form method="POST" action="{% url 'users:register' %}">
-			{% csrf_token %}
-			<fieldset><legend>Register</legend>
-				{{ form.register }}
-				<input type="submit">
-			</fieldset>
-		</form>
-	</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>PortfolioX</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="..static/users/css.css">
+ 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"> 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/script.js"></script>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Portfolio<b>X</b></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Welcome to Portfolio<b>X</b>!</h1>
+        <p>Keep tabs on your stocks, 401k, and IRA. Track them all in one place, in real-time . Sign up in seconds, 100% free. FREE! START NOW </p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Register &raquo;</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Invest with confidence</h2>
+          <p>No matter what type of investor you are, keeping an eye on your investments is always a priority. Thankfully, this website devoted to this task are continually offering more powerful portfolio management tools to help you do just that.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Why PortfolioX</h2>
+          <p>PortfolioX online portfolio tracker is constantly adding new features and functionality. Our online portfolio tracker can handle cash, stocks, mutual funds and exchange-traded funds ETFs; also is not limited in its customization; and we offer portfolio analysis features. Our reports offered are generally more robust than those found in others software programs.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Manage all your investments in one place</h2>
+          <p>Many online discount brokers offer proprietary portfolio management capabilities that are very good. However, most investors now have holdings in several accounts at different financial institutions: For instance, you may have a 401(k) account in one place, an IRA account in another and also an account at a discount broker. PortfolioX online portfolio management service solves the problem of tracking separate accounts by allowing users to combine and analyze all assets in one location, making it easy to monitor all holdings as one complete portfolio.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; 2016 Caveatemptors-Garbanzo, Inc.</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
 </html>
+
+
+
+
