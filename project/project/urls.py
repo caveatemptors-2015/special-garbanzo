@@ -16,10 +16,10 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-
+from users.views import Welcome
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', 'users.views.welcome', name='home'),
+    url(r'^$', Welcome.as_view(), name='home'),
     url(r'^users/', include('users.urls', namespace='users')),
     url(r'^portfolioX/', include('portfolioX.urls', namespace='portfolioX')),
     url(r'^quotes/', include('quotes.urls', namespace='quotes')),
