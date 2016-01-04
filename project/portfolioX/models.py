@@ -10,15 +10,13 @@ class Investor(models.Model):
 class Security(models.Model):
 	symbol = models.CharField(max_length = 50)
 	url = models.URLField()
-	
-class Porfolios(models.Model):
-	investor = models.ForeignKey(Investor)
-	security = models.ForeignKey(Security)
 	quantity = models.IntegerField(100)
-	txn_date = models.DateField()
-	porfolio_name = models.CharField(max_length=200)
+	investor = models.ForeignKey(Investor)
 
-	
+class Transaction(models.Model):
+	quantity = models.IntegerField(1000)
+	symbol = models.ForeignKey(Security)
+	txn_date = models.DateField() 
 
 class Markit:
 	def __init__(self):
