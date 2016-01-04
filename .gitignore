@@ -59,3 +59,5 @@ secret.py
 
 # special-garbanzo stuff
 db.sqlite3
+migrations/
+
