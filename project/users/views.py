@@ -1,16 +1,19 @@
 from django.shortcuts import render, redirect
 from users.forms import UserForm
 from django.contrib.auth.models import User
+from django.views.generic import View
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib.auth import authenticate, login, logout
 
+
 # Create your views here.
-def welcome(request):
-    return render(request, 'users/welcome.html', {'form': {'login':
+class Welcome(View): 
+    def get(self,request):
+        return render(request, 'users/welcome.html', {'form': {'login':
         UserForm(), 'register': UserForm()}})
 
-def login_(request):
-    if request.method == 'POST':
+class Login_(View):
+    def post(self,request):
         user_form = UserForm(request.POST)
         username = user_form['username'].value()
         password = user_form['password'].value()
@@ -24,11 +27,13 @@ def login_(request):
             {'login': user_form, 'register': UserForm()}} )
 
 
-def create_user(request):
-    return render(request, 'users/create_user.html', {'form':UserForm()})
+class Create_user(View): 
+    def get(self,request): 
+        return render(request, 'users/create_user.html', {'form':UserForm()})
 
-def register(request):
-    if request.method == 'POST':
+
+class Register(View): 
+    def post(self,request): 
         user_form = UserForm(request.POST)
         if user_form.is_valid():
             user = user_form.save(commit=False)
@@ -43,3 +48,6 @@ def register(request):
                     return redirect('users:welcome')
         return render(request, 'users/welcome.html', {'form':
             {'login': UserForm(), 'register': user_form}} )
+
+
+
