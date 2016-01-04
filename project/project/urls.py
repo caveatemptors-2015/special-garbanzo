@@ -19,8 +19,10 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', include('users.urls')),
-    url(r'^users/', include('users.urls', namespace='users')),
-    url(r'^portfolioX/', include('portfolioX.urls', namespace='portfolioX')),
-    url(r'^quotes/', include('quotes.urls', namespace='quotes')),
+    # url(r'^$', include('users.urls')),
+    url(r'^$', 'users.views.welcome', name  = 'home'),
+    url(r'^users/', include('users.urls', name ='users')),
+    url(r'^portfolioX/', include('portfolioX.urls', name   ='portfolioX')),
+    url(r'^quotes/', include('quotes.urls', name   ='quotes')),
 ]
+   
