@@ -48,6 +48,3 @@ class Register(View):
                     return redirect('users:welcome')
         return render(request, 'users/welcome.html', {'form':
             {'login': UserForm(), 'register': user_form}} )
-
-
-
