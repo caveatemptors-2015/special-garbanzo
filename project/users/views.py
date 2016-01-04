@@ -16,13 +16,17 @@ class Login_(View):
     def post(self,request):
         user_form = UserForm(request.POST)
         username = user_form['username'].value()
+        # print(user_form['username'].value())
         password = user_form['password'].value()
         user = authenticate(username=username, password=password)
+        print (user)
         if user is not None:
             if user.is_active:
                 login(request, user)
+                print(user.username)
+
                 request.session['user_id'] = username
-                return redirect('users:welcome')
+                return redirect('portfolioX:holdings')
         return render(request, 'users/welcome.html', {'form':
             {'login': user_form, 'register': UserForm()}} )
 
