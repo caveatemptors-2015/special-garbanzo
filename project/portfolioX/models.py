@@ -7,13 +7,15 @@ class Investor(models.Model):
 	password = models.CharField(max_length=16)
 
 class Security(models.Model):
-	symbol = models.CharField(max_length = 50)
-	url = models.URLField()
-	quantity = models.IntegerField(100)
 	investor = models.ForeignKey(Investor)
+	symbol = models.CharField(max_length = 50)
+	url = models.URLField()    #gets all other info like symbol, price
+	quantity = models.IntegerField()
 
 class Transaction(models.Model):
-	quantity = models.IntegerField(1000)
+	user = models.ForeignKey(Investor)
 	symbol = models.ForeignKey(Security)
-	txn_date = models.DateField() 
+	quantity = models.IntegerField()
+	txn_date = models.DateField()
+	price = models.DecimalField(max_digits = 6, decimal_places = 2) 
 
