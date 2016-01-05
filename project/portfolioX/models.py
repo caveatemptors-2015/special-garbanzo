@@ -1,21 +1,22 @@
 from django.db import models
+from users.models import User
 
 # Create your models here.
 
-class Investor(models.Model):
-	name = models.CharField(max_length=200)
-	password = models.CharField(max_length=16)
+# class User(models.Model):
+# 	name = models.CharField(max_length=200)
+# 	password = models.CharField(max_length=16)
 
 class Security(models.Model):
-	investor = models.ForeignKey(Investor)
+	user = models.ForeignKey(User)
 	symbol = models.CharField(max_length = 50)
-	url = models.URLField()    #gets all other info like symbol, price
 	quantity = models.IntegerField()
+	avg_price = models.DecimalField(max_digits = 6, decimal_places = 2) #calculated and updated
 
 class Transaction(models.Model):
-	user = models.ForeignKey(Investor)
+	user = models.ForeignKey(User)
 	symbol = models.ForeignKey(Security)
 	quantity = models.IntegerField()
-	txn_date = models.DateField()
+	txn_date = models.DateTimeField(auto_now_add=True)
 	price = models.DecimalField(max_digits = 6, decimal_places = 2) 
 
