@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% load staticfiles %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -8,10 +7,18 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="stylesheet" href="../../static/portfolioX/holdings.html">
+   
 
     <title>PortfolioX</title>
 
+    <!-- Bootstrap core CSS -->
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
+
+    
+    <link href="../../static/portfolioX/holdings.css" rel="stylesheet">
+
+    
   </head>
 
   <body>
@@ -25,7 +32,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Portfolio<b>X</b></a>
+          <a class="navbar-brand" href="#">Project name</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -47,7 +54,7 @@
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
             <li><a href="#">Analytics</a></li>
-            </ul>
+          </ul>
           <ul class="nav nav-sidebar">
             <li><a href="">Buy</a></li>
             <li><a href="">Sell</a></li>
@@ -62,24 +69,24 @@
 
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="../../static/portfolioX/1.jpeg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Analytics</h4>
-              <span class="text-muted">Portfolio performance</span>
+              <img src="../../static/portfolioX/11.jpg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Add</h4>
+              <span class="text-muted">Add security to portfolio</span>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
               <img src="../../static/portfolioX/2.jpeg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Security reports</h4>
-              <span class="text-muted">Research</span>
+              <h4>Delete</h4>
+              <span class="text-muted">Delete security from portfolio</span>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
               <img src="../../static/portfolioX/3.jpeg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Add securities</h4>
-              <span class="text-muted">Update watchlist</span>
+              <h4>Buy</h4>
+              <span class="text-muted">Buy security at market price</span>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
               <img src="../../static/portfolioX/4.jpeg" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Delete securities</h4>
-              <span class="text-muted">Update watchlist</span>
+              <h4>Sell</h4>
+              <span class="text-muted">Sell security at market price</span>
             </div>
           </div>
 
@@ -217,13 +224,11 @@
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"> 
+    <!-- Placed at the end of the document so the pages load faster -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="../../static/portfolioX/bootstrap.min.js"></script>
-    <script src="../../static/portfolioX/ie-emulation-modes-warning.js"></script>
-    <script src="../../static/portfolioX/holder.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     
     
   </body>
