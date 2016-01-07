@@ -1,30 +1,30 @@
 from django.db import models
-import requests
+from django.contrib.auth.models import User
 
 # Create your models here.
 
-class Investor(models.Model):
-	name = models.CharField(max_length=200)
-	password = models.CharField(max_length=16)
-
+# class User(models.Model):
+# 	name = models.CharField(max_length=200)
+# 	password = models.CharField(max_length=16)
 class Security(models.Model):
-	symbol = models.CharField(max_length = 50)
-	url = models.URLField()
+	ticker = models.CharField(max_length = 100)
+	company_name = models.CharField(max_length = 255)
+
+class Portfolio(models.Model):
+	portfolio_name = models.CharField(max_length = 255)
+	user = models.ForeignKey(User)
 	
-class Porfolios(models.Model):
-	investor = models.ForeignKey(Investor)
+
+class Holding(models.Model):
+	portfolio = models.ForeignKey(Portfolio)
 	security = models.ForeignKey(Security)
-	quantity = models.IntegerField(100)
-	txn_date = models.DateField()
-	porfolio_name = models.CharField(max_length=200)
+	quantity = models.IntegerField()
+	avg_price = models.DecimalField(max_digits = 6, decimal_places = 2) #calculated and updated
 
-	
+class Transaction(models.Model):
+	portfolio = models.ForeignKey(Portfolio)
+	symbol = models.ForeignKey('Security')
+	quantity = models.IntegerField()
+	txn_date = models.DateTimeField(auto_now_add=True)
+	price = models.DecimalField(max_digits = 6, decimal_places = 2) 
 
-class Markit:
-	def __init__(self):
-		self.lookup_url = "http://dev.markitondemand.com/Api/v2/Lookup/json?input="
-		self.quote_url = "http://dev.markitondemand.com/Api/v2/Quote/json?symbol="
-
-	def get_quote(self,company):
-		r = requests.get(self.quote_url+company)
-		return r.json()
