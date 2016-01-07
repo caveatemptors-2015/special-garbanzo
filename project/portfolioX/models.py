@@ -6,17 +6,25 @@ from django.contrib.auth.models import User
 # class User(models.Model):
 # 	name = models.CharField(max_length=200)
 # 	password = models.CharField(max_length=16)
-
 class Security(models.Model):
+	ticker = models.CharField(max_length = 100)
+	company_name = models.CharField(max_length = 255)
+
+class Portfolio(models.Model):
+	portfolio_name = models.CharField(max_length = 255)
 	user = models.ForeignKey(User)
-	symbol = models.CharField(max_length = 50)
-	quantity = models.IntegerField(default = 0 )
-	avg_price = models.DecimalField(max_digits = 6, decimal_places = 2, default = 0.00) #calculated and updated
+	
+
+class Holding(models.Model):
+	portfolio = models.ForeignKey(Portfolio)
+	security = models.ForeignKey(Security)
+	quantity = models.IntegerField()
+	avg_price = models.DecimalField(max_digits = 6, decimal_places = 2) #calculated and updated
 
 class Transaction(models.Model):
-	user = models.ForeignKey(User)
+	portfolio = models.ForeignKey(Portfolio)
 	symbol = models.ForeignKey('Security')
-	quantity = models.IntegerField(default = 0)
+	quantity = models.IntegerField()
 	txn_date = models.DateTimeField(auto_now_add=True)
-	price = models.DecimalField(max_digits = 6, decimal_places = 2, default = 0.00) 
+	price = models.DecimalField(max_digits = 6, decimal_places = 2) 
 
