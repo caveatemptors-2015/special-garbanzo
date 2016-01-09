@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Art's Add Stocks Page</title></head>
+	<body>
+		<h1>Create Portfolio</h1>
+		<div>
+			<form action={% url 'compliments:create' user.id %} method="POST">
+					{% csrf_token %}
+					{{form.as_table}}
+					<input type="submit" value="Create Portfolio">
+				</form>
+			</div>
+	</body>
+</html>

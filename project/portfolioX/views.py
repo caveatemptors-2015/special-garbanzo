@@ -1,7 +1,15 @@
 from django.shortcuts import render
 from django.views.generic import View
 
-# Create your views here.
+
+class UserCreatePortfolio(View):
+	template_name = 'portfolioX/create_portfolio.html'
+	
+	def post(self, request, user_id):
+		pass
+
+
+
 class BuySellView(View):
 	def get(self, request):
 		return render(request, 'portfolioX/buysell.html')
