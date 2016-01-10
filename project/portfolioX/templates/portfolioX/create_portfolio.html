@@ -4,7 +4,7 @@
 	<body>
 		<h1>Create Portfolio</h1>
 		<div>
-			<form action={% url 'compliments:create' user.id %} method="POST">
+			<form action={% url 'portfolioX:create_portfolio' %} method="POST">
 					{% csrf_token %}
 					{{form.as_table}}
 					<input type="submit" value="Create Portfolio">

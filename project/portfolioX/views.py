@@ -1,12 +1,23 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import View
+from . form_buy_new_security import PortfolioForm
 
 
 class UserCreatePortfolio(View):
 	template_name = 'portfolioX/create_portfolio.html'
 	
-	def post(self, request, user_id):
-		pass
+	def get(self, request):
+		context = {'form': PortfolioForm(initial={'user':request.user.id})}
+		return render(request, self.template_name, context)
+
+	def post(self, request):
+		portfolio_name = PortfolioForm(request.POST)
+		context = {'form': portfolio_name}
+		if portfolio_name.is_valid():
+			portfolio = portfolio_name.save()
+			return redirect('portfolioX:addremove')
+		else:
+			return render(request, self.template_name, context)
 
 
 
