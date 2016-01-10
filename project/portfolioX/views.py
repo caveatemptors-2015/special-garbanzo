@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
+from . models import Portfolio, Security, Holding, Transaction
 from . form_buy_new_security import PortfolioForm
 
 
@@ -18,6 +19,14 @@ class UserCreatePortfolio(View):
 			return redirect('portfolioX:addremove')
 		else:
 			return render(request, self.template_name, context)
+
+class ListViewPortfolio(View):
+	template_name = 'portfolioX/list_portfolio.html'
+
+	def get(self, request):
+		portfolio_list = Portfolio.objects.all()
+		context = {'portfolio_list': portfolio_list}
+		return render(request, self.template_name, context)
 
 
 
