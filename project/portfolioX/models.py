@@ -25,6 +25,6 @@ class Transaction(models.Model):
 	portfolio = models.ForeignKey(Portfolio)
 	symbol = models.ForeignKey('Security')
 	quantity = models.IntegerField()
-	txn_date = models.DateTimeField(auto_now_add=True)
+	txn_date = models.DateTimeField(auto_now_add=False)
 	price = models.DecimalField(max_digits = 6, decimal_places = 2) 
 
