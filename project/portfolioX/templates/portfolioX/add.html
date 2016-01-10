@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head><title>AddSecuruty</title></head>
+	<body>
+		<h1>Add security</h1>
+		<div>
+			<form action={% url 'portfolioX:add' %} method="POST">
+					{% csrf_token %}
+					{{security.as_table}}
+					<input type="submit" value="Add scurity">
+				</form>
+			</div>
+	</body>
+</html>
