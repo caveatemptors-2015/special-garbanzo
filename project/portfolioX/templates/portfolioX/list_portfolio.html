@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head><title>All portfolios</title></head>
+	<body>
+		<div>
+			<h1> All portfolios</h1>
+				<div>
+					<ul>{% for portfolio in portfolio_list %}
+
+						<li><a href='addremove/{{portfolio.id}}'>{{portfolio.portfolio_name}}</a></li>
+						{% endfor%}
+					</ul>
+			</div>
+	</body>
+</html>
