@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Update holdings</title></head>
+	<body>
+		<h1>Update holdings in portfolio</h1>
+		<div>
+			<form action={% url 'portfolioX:update_holding' portfolio_id=portfolio_id holding_id=holding_id %} method="POST">
+					{% csrf_token %}
+					{{form.as_table}}
+					<input type="submit" value="Update">
+				</form>
+			</div>
+	</body>
+</html>

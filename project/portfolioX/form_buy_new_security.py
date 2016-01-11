@@ -1,6 +1,5 @@
 from django import forms
 from portfolioX.models import Security, Portfolio, Holding, Transaction
-from django.forms.widgets import HiddenInput
 
 class SecurityForm(forms.ModelForm):
 	class Meta:
@@ -16,6 +15,9 @@ class HoldingForm(forms.ModelForm):
 	class Meta:
 		model = Holding
 		fields = ['portfolio', 'security', 'quantity', 'avg_price']
+		widgets = {
+			'portfolio': forms.HiddenInput()
+		}
 		
 
 class TransactionForm(forms.ModelForm):
