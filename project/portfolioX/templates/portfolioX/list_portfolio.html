@@ -5,9 +5,18 @@
 		<div>
 			<h1> All portfolios</h1>
 				<div>
-					<ul>{% for portfolio in portfolio_list %}
+					<h2> Choose portfolio to add holdings</h2>
+						<ul>{% for portfolio in portfolio_list %}
 
 						<li><a href='add_holding/{{portfolio.id}}'>{{portfolio.portfolio_name}}</a></li>
+						{% endfor%}
+					</ul>
+			</div>
+			<div>
+					<h2> Choose portfolio to view all holdings</h2>
+						<ul>{% for portfolio in portfolio_list %}
+
+						<li><a href='all_holding/{{portfolio.id}}'>{{portfolio.portfolio_name}}</a></li>
 						{% endfor%}
 					</ul>
 			</div>

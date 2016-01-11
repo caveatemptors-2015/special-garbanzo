@@ -49,7 +49,7 @@ class HoldingAddView(View):
 
 	def get(self, request, portfolio_id):
 		portfolio = Portfolio.objects.get(pk=portfolio_id)
-		context = {'portfolio_id':portfolio_id, 'form': HoldingForm(initial={portfolio:portfolio_id})}
+		context = {'portfolio_id':portfolio_id, 'form': HoldingForm(initial={'portfolio':portfolio_id})}
 		return render(request, self.template_name, context)
 
 	def post(self, request, portfolio_id):
@@ -59,6 +59,34 @@ class HoldingAddView(View):
 			holding = holding_name.save()
 			return redirect('portfolioX:holdings')
 		else:
+			return render(request, self.template_name, context)
+
+class HoldingAllView(View):
+	template_name = 'portfolioX/all_holding.html'
+
+	def get(self, request, portfolio_id):
+		holding_all = Holding.objects.filter(portfolio=portfolio_id)
+		context = {'holding_all': holding_all}
+		return render(request, self.template_name, context)
+
+class HoldingUpdateView(View):
+	template_name = 'portfolioX/update_holding.html'
+
+	def get(self, request, portfolio_id, holding_id):
+		portfolio = Portfolio.objects.get(pk=portfolio_id, user=request.user)
+		holding = Holding.objects.get(pk=holding_id, portfolio=portfolio_id)
+		context = {'portfolio_id':portfolio_id, 'holding_id':holding_id, 'form': HoldingForm(instance=holding)}
+		return render(request, self.template_name, context)
+
+	def post(self, request, portfolio_id, holding_id):
+		portfolio = Portfolio.objects.get(pk=portfolio_id, user=request.user)
+		holding = Holding.objects.get(pk=holding_id, portfolio=portfolio_id)
+		holding_form = HoldingForm(request.POST, instance=holding)
+		if holding_form.is_valid():
+			holding = holding_form.save()
+			return redirect('portfolioX:all_holding', portfolio_id=portfolio_id)
+		else:
+			context = {'holding_id':holding_id, 'form':holding_name}
 			return render(request, self.template_name, context)
 	
 

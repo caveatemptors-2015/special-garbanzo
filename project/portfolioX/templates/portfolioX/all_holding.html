@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head><title>All securities in portfolio</title></head>
+	<body>
+		<div>
+			<h1> All securities in portfolio</h1>
+				<div>
+					<h2> Choose security to update holdings</h2>
+						<ul>{% for holding in holding_all %}
+
+						<li><a href='update_holding/{{holding.id}}'>{{holding.security}} {{holding.quantity}} {{holding.avg_price}}</a></li>
+						{% endfor%}
+					</ul>
+			</div>
+	</body>
+</html>
